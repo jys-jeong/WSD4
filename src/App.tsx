@@ -6,7 +6,7 @@ import AppRoutes from "./routes"; // 라우팅 설정
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <Router basename="/WSD">
+      <Router basename={`${process.env.REACT_APP_BASE_URL}`}>
         {" "}
         {/* 기본 경로를 WSD로 설정 */}
         <AppRoutes /> {/* 라우팅 설정 */}
