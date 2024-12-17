@@ -1,0 +1,194 @@
+/* 영화 목록 컨테이너 */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.movie-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* 개별 영화 항목 */
+.movie-item {
+  text-align: center;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* 영화 포스터 */
+.movie-item img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 영화 제목 */
+.movie-item p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 영화 항목 호버 효과 */
+.movie-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+.movie-title1 {
+  font-size: 14px;
+  justify-self: center;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+.vote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.votenum {
+  margin: 0;
+  font-size: 10px;
+}
+/* Infinite.css 파일에 스타일 추가 */
+.scroll-guide {
+  position: fixed; /* 화면에 고정 */
+  top: 50%; /* 화면 중앙에 배치 */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
+  background-color: rgba(0, 0, 0, 0.7); /* 반투명 배경 */
+  color: white;
+  padding: 20px 40px; /* 적당한 패딩 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* z-index를 높여서 MovieList 위에 표시 */
+  opacity: 1; /* 기본 opacity */
+  transition: opacity 1.5s ease-out; /* opacity를 천천히 변화시킴 */
+}
+
+.scroll-guide.fade-out {
+  opacity: 0; /* 사라질 때 opacity를 0으로 설정 */
+}
+
+.arrow {
+  margin-top: 10px;
+  font-size: 2rem; /* 화살표 크기 조정 */
+}
+/* Infinite.css 파일에 스타일 추가 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* 반투명 배경 */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 다른 요소들 위에 표시되도록 설정 */
+  font-size: 2rem; /* 글자 크기 조정 */
+}
+.wishlist {
+  padding: 20px;
+}
+
+.wishlist h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.wishlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.loading-overlay {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* 400px 이하에서 적용되는 스타일 */
+@media (max-width: 400px) {
+  /* 영화 목록 컨테이너 */
+  .movie-list {
+    grid-template-columns: 1fr; /* 한 열로 영화 항목 배치 */
+    gap: 10px; /* 간격을 좁힘 */
+    padding: 5px;
+    justify-items: center;
+  }
+  .movie-list > div {
+    max-width: 130px;
+  }
+  /* 영화 항목 */
+  .movie-item {
+    padding: 5px;
+  }
+
+  /* 영화 포스터 */
+  .movie-item img {
+    border-radius: 6px; /* 더 작은 모서리 반경 */
+  }
+
+  /* 영화 제목 */
+  .movie-item p {
+    font-size: 0.75rem; /* 글자 크기 더 작게 조정 */
+  }
+  .movie-overlay {
+    display: none;
+  }
+  /* 스크롤 가이드 */
+  .scroll-guide {
+    padding: 8px 16px; /* 패딩을 좀 더 줄여서 공간 확보 */
+    font-size: 0.9rem; /* 글자 크기 조정 */
+  }
+
+  /* 로딩 오버레이 */
+  .loading-overlay {
+    font-size: 1.2rem; /* 로딩 글자 크기 줄이기 */
+  }
+
+  /* 위시리스트 제목 */
+  .wishlist h2 {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  /* 위시리스트 컨테이너 */
+  .wishlist-container {
+    gap: 8px; /* 위시리스트 항목 간격 줄이기 */
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

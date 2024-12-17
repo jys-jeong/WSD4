@@ -1,0 +1,76 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: right;
+  width: fit-content;
+  margin-top: 80px;
+}
+
+.filter-bar select {
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-bar select:focus {
+  border-color: #007bff;
+}
+
+.filter-bar select option {
+  font-size: 14px;
+}
+
+.filter-bar button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-bar button:hover {
+  background-color: #0056b3;
+}
+
+.filter-bar .reset-button {
+  background-color: red;
+}
+
+.filter-bar .reset-button:hover {
+  background-color: black;
+}
+
+@media (max-width: 400px) {
+  .filter-bar {
+    padding: 10px; /* 패딩을 줄여서 작은 화면에 맞게 */
+    max-width: 100%; /* 너비를 화면에 맞게 설정 */
+    margin-top: 80px; /* 상단 여백 줄이기 */
+  }
+
+  .filter-bar select,
+  .filter-bar button {
+    width: 100%; /* 너비를 100%로 설정 */
+    font-size: 14px; /* 폰트 크기 줄이기 */
+    padding: 8px 12px; /* 패딩을 줄여서 작은 화면에 맞게 */
+  }
+
+  .filter-bar button {
+    font-size: 14px; /* 버튼 폰트 크기 줄이기 */
+    padding: 8px 12px; /* 버튼 패딩 줄이기 */
+  }
+}

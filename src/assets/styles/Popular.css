@@ -1,0 +1,54 @@
+.view-toggle {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin: 80px 20px 10px 20px;
+}
+
+.view-toggle-btn {
+  background-color: #2d2d2d; /* 배경 색상 */
+  color: white;
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.view-toggle-btn:hover {
+  background-color: red; /* 호버 시 색상 변화 */
+  transform: scale(1.1); /* 호버 시 크기 커짐 */
+}
+
+.view-toggle-btn:focus {
+  outline: none;
+}
+
+.view-toggle-btn svg {
+  margin: 0;
+}
+.pagination button {
+  background-color: #2d2d2d; /* 파란색 버튼 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.pagination button:hover {
+  background-color: red; /* 호버 시 색 변경 */
+}
+.pagination button:active {
+  background-color: red; /* 호버 시 색 변경 */
+}
+.pagination button:focus-visible {
+  outline: 2px solid #ff4d4d; /* 터치 후 포커스 시 색상 지정 */
+}

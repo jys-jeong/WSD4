@@ -1,0 +1,148 @@
+/* 전체 컨테이너 스타일 */
+.movie-list-container {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.movie-grid-container {
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 그리드 레이아웃 */
+.movie-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(150px, 1fr)
+  ); /* 기본적으로 150px씩 크기를 조정 */
+  grid-auto-rows: auto;
+  gap: 15px;
+}
+
+/* 개별 영화 카드 스타일 */
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 영화 포스터 스타일 */
+.movie-item img {
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* 영화 제목 영역 */
+.movie-item-title {
+  font-size: 0.9rem;
+  padding: 8px;
+  text-align: center;
+  color: #333333;
+  background-color: #f0f0f0;
+}
+
+/* 로딩 상태 텍스트 */
+.movie-grid-container p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* 페이지네이션 컨테이너 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* 400px 이하에서 변경될 스타일 */
+@media (max-width: 400px) {
+  /* 그리드 레이아웃 */
+  .movie-list-container {
+    width: 100%;
+    justify-self: center;
+  }
+  .movie-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(120px, 1fr)
+    ); /* 영화 카드가 작은 화면에서 한 줄에 여러 개 나올 수 있도록 설정 */
+    gap: 10px;
+    justify-items: center;
+  }
+
+  /* 개별 영화 카드 */
+  .movie-item {
+    width: 100%; /* 영화 카드가 화면 너비에 맞게 확장되도록 설정 */
+  }
+
+  /* 영화 포스터 */
+  .movie-item img {
+    width: 120px; /* 포스터 크기를 더욱 줄이기 */
+    height: 200px;
+  }
+
+  /* 영화 제목 */
+  .movie-item-title {
+    font-size: 0.65rem; /* 제목 폰트 크기 줄이기 */
+    padding: 4px;
+  }
+
+  /* 페이지네이션 버튼 */
+  .pagination button {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+}
+
+/* 터치 이벤트 지원 */
+.movie-item:active {
+  transform: scale(0.95);
+}
+
+/* 접근성 향상 */
+button {
+  outline: none;
+}
+
+/* 화면 회전 대응 */
+@media (orientation: landscape) {
+  .movie-grid-container {
+    padding: 30px;
+  }
+
+  .movie-item-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* 폰트 크기 조절 지원 */
+body {
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
