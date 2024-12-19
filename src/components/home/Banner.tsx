@@ -20,7 +20,7 @@ const Banner: React.FC = () => {
     <div
       className="banner"
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`,
+        backgroundImage: `url(${process.env.REACT_APP_TMDB_IMG_URL}/t/p/original${movie?.backdrop_path})`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}

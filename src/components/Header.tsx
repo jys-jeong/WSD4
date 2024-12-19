@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"; // 추가 아이콘
 import { useAuth } from "../hooks/useAuth";
 import Toast from "./Auth/Toast";
+import axios from "axios";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
   const [email, setEmail] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastType, setToastType] = useState<"success" | "error">("success");
-
+  const userInfo = JSON.parse(localStorage.getItem("kakaoUserInfo") || "{}");
   useEffect(() => {
     const storedEmail = getFromStorage("email");
     setEmail(storedEmail);
@@ -52,8 +53,29 @@ const Header: React.FC = () => {
     setTimeout(() => {
       setToastMessage(null);
     }, 3000);
+    try {
+      const accessToken = getFromStorage("access_token");
+      const response = await axios.post(
+        "https://kapi.kakao.com/v1/user/logout",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // 액세스 토큰을 Authorization 헤더에 포함
+          },
+        }
+      );
 
-    navigate("/signin");
+      // 로그아웃 성공 시 처리
+      if (response.status === 200) {
+        alert("로그아웃 성공!");
+        removeFromStorage("access_token");
+        removeFromStorage("kakaoUserInfo");
+      }
+    } catch (error) {
+      console.error("카카오 로그아웃 실패:", error);
+    }
+
+    window.location.reload();
   };
 
   return (
@@ -102,7 +124,10 @@ const Header: React.FC = () => {
           </Link>
         </nav>
         <div className="header__profile">
-          {email && <span className="header__email">{email}님</span>}
+          <span className="header__email">
+            {userInfo.kakao_account.profile.nickname}님
+          </span>
+
           <button onClick={handleSignOut} className="header__profileButton">
             <FontAwesomeIcon
               icon={faRightFromBracket}

@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/Auth/ProtectedRoute";
 import PublicRoute from "./components/Auth/PublicRoute";
 import Toast from "./components/Auth/Toast";
 import "./AppRoutes.css";
+import AuthCallback from "./utils/KakaoCallback";
 
 const AppRoutes: React.FC = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -32,7 +33,8 @@ const AppRoutes: React.FC = () => {
   };
 
   // 'signin' 경로는 TransitionGroup 밖에서 처리
-  const isSigninPage = location.pathname === "/signin";
+  const isSigninPage =
+    location.pathname === "/signin" || location.pathname === "/auth";
 
   return (
     <div>
@@ -47,6 +49,7 @@ const AppRoutes: React.FC = () => {
               </PublicRoute>
             }
           />
+          <Route path="/auth" element={<AuthCallback />} />
         </Routes>
       ) : (
         <TransitionGroup className="page-transition-container">

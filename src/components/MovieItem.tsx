@@ -21,7 +21,7 @@ const MovieItem: React.FC<MovieItemProps> = ({ movie, onToggleWishlist }) => {
     <div className="movie-item">
       {/* 영화 포스터 클릭 시 wishlist 추가/삭제 */}
       <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        src={`${process.env.REACT_APP_TMDB_IMG_URL}/t/p/w500${movie.poster_path}`}
         alt={movie.title}
         onClick={handleToggleWishlist}
       />
