@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../assets/styles/Header.css";
 import { getFromStorage, removeFromStorage } from "../utils/localstorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,17 +16,13 @@ import Toast from "./Auth/Toast";
 import axios from "axios";
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
   const { signOut } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [email, setEmail] = useState<string | null>(null);
+
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastType, setToastType] = useState<"success" | "error">("success");
   const userInfo = JSON.parse(localStorage.getItem("kakaoUserInfo") || "{}");
   useEffect(() => {
-    const storedEmail = getFromStorage("email");
-    setEmail(storedEmail);
-
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);

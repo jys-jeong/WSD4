@@ -1,10 +1,4 @@
 import axios from "axios";
-import { getFromStorage } from "./localstorage";
-
-const getAPIKey = async () => {
-  const key = await getFromStorage("TMDb-Key");
-  return key;
-};
 
 const BASE_URL = `${process.env.REACT_APP_TMDB_API_URL}`;
 const lang = `${process.env.REACT_APP_DEFAULT_LANGUAGE}`;
