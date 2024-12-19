@@ -21,7 +21,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
       {movies.map((movie) => (
         <div key={movie.id} style={{ textAlign: "center" }}>
           <img
-            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            src={`${process.env.REACT_APP_TMDB_IMG_URL}/t/p/w200${movie.poster_path}`}
             alt={movie.title}
             style={{ width: "150px", height: "225px" }}
           />

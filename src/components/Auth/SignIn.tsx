@@ -34,6 +34,10 @@ const SignIn: React.FC<SignInProps> = ({
     }
   }, []);
 
+  const handleLogin = () => {
+    onLoginStatusChange({ success: true, message: "카카오 로그인 접속" }); // 로그인 성공 메시지
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code&prompt=login`;
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const success = await signIn(email, password);
@@ -65,14 +69,12 @@ const SignIn: React.FC<SignInProps> = ({
           placeholder="이메일"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
         />
         <input
           type="password"
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
         />
         <label>
           <input
@@ -83,6 +85,7 @@ const SignIn: React.FC<SignInProps> = ({
           아이디 저장
         </label>
         <button type="submit">로그인</button>
+        <button onClick={handleLogin}>카카오로 로그인</button>
         <button type="button" onClick={onToggle}>
           회원가입하기
         </button>
