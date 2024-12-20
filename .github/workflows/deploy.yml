@@ -42,14 +42,14 @@ jobs:
           echo "REACT_APP_DEFAULT_LANGUAGE=$REACT_APP_DEFAULT_LANGUAGE" >> .env.production
           echo "REACT_APP_KAKAO_API_KEY=$REACT_APP_KAKAO_API_KEY" >> .env.production
         env:
-          REACT_APP_ENV: ${{ env.REACT_APP_ENV }}
-          REACT_APP_TMDB_API_KEY: ${{ env.REACT_APP_TMDB_API_KEY }}
-          REACT_APP_IP_ADDRESS: ${{ env.REACT_APP_IP_ADDRESS }}
-          REACT_APP_BASE_URL: ${{ env.REACT_APP_BASE_URL }}
-          REACT_APP_TMDB_API_URL: ${{ env.REACT_APP_TMDB_API_URL }}
-          REACT_APP_TMDB_IMG_URL: ${{ env.REACT_APP_TMDB_IMG_URL }}
-          REACT_APP_DEFAULT_LANGUAGE: ${{ env.REACT_APP_DEFAULT_LANGUAGE }}
-          REACT_APP_KAKAO_API_KEY: ${{ env.REACT_APP_KAKAO_API_KEY }}
+          REACT_APP_ENV: ${{ secrets.REACT_APP_ENV }}
+          REACT_APP_TMDB_API_KEY: ${{ secrets.REACT_APP_TMDB_API_KEY }}
+          REACT_APP_IP_ADDRESS: ${{ secrets.REACT_APP_IP_ADDRESS }}
+          REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+          REACT_APP_TMDB_API_URL: ${{ secrets.REACT_APP_TMDB_API_URL }}
+          REACT_APP_TMDB_IMG_URL: ${{ secrets.REACT_APP_TMDB_IMG_URL }}
+          REACT_APP_DEFAULT_LANGUAGE: ${{ secrets.REACT_APP_DEFAULT_LANGUAGE }}
+          REACT_APP_KAKAO_API_KEY: ${{ secrets.REACT_APP_KAKAO_API_KEY }}
       - name: npm install and build
         run: |
           npm install
