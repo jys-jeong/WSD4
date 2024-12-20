@@ -14,7 +14,7 @@ const App: React.FC = () => {
   }, []);
   return (
     <AuthProvider>
-      <Router basename={`${process.env.REACT_APP_BASE_URL}`}>
+      <Router basename="/WSD4">
         {" "}
         {/* 기본 경로를 WSD로 설정 */}
         <AppRoutes /> {/* 라우팅 설정 */}
