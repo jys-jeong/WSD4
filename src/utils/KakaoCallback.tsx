@@ -7,6 +7,8 @@ const AuthCallback = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [toastMessage, setToastMessage] = useState("");
+  console.log(process.env.REACT_APP_KAKAO_API_KEY);
+  console.log(process.env.REACT_APP_KAKAO_REDIRECT_URI);
   useEffect(() => {
     const fetchToken = async () => {
       const urlParams = new URLSearchParams(location.search);
