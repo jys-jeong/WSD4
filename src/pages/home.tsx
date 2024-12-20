@@ -11,7 +11,7 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     if (code) {
-      console.log(code);
+      console.log("code:", code);
       setCode(code);
       navigate("/auth");
     }
