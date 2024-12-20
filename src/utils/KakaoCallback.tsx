@@ -49,7 +49,7 @@ const AuthCallback = () => {
         } catch (error) {
           console.error("토큰 요청 실패:", error);
           setToastMessage("카카오 로그인 실패! 다시 시도해주세요.");
-          alert("카카오 로그인 실패! 다시 시도해주세요.");
+          alert("카카오 로그인 실패! 다시 시도해주세요");
           navigate("/signin");
         }
       }
