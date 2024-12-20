@@ -42,7 +42,7 @@ const SignIn: React.FC<SignInProps> = ({
   useEffect(() => {
     const urlParams = new URL(window.location.href).searchParams;
     const authCode = urlParams.get("code");
-
+    console.log(authCode);
     if (authCode) {
       navigate("/auth", { state: { code: authCode } });
     }
