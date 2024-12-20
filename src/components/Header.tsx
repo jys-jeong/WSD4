@@ -121,7 +121,9 @@ const Header: React.FC = () => {
         </nav>
         <div className="header__profile">
           <span className="header__email">
-            {userInfo.kakao_account.profile.nickname}님
+            {userInfo?.kakao_account?.profile?.nickname
+              ? `${userInfo.kakao_account.profile.nickname}님`
+              : "사용자"}
           </span>
 
           <button onClick={handleSignOut} className="header__profileButton">
