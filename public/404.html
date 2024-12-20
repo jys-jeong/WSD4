@@ -32,7 +32,7 @@
       if (redirectUri.includes("/auth")) {
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
-        window.location.replace("/WSD4/");
+        console.log(code);
         if (code) {
           // 여기서 실제 카카오 API 호출을 처리하거나 리디렉션을 처리
           window.location.replace("/WSD4/auth?code=" + code); // 예시로 `/auth`로 리디렉션
