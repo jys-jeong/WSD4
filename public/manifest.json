@@ -1,5 +1,5 @@
 {
-  "short_name": "React App",
+  "short_name": "JYSflix",
   "name": "Create React App Sample",
   "icons": [
     {
@@ -20,7 +20,7 @@
     {
       "src": "movie.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "192x192"
     }
   ],
   "start_url": ".",
