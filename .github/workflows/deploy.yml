@@ -41,6 +41,7 @@ jobs:
           echo "REACT_APP_TMDB_IMG_URL=$REACT_APP_TMDB_IMG_URL" >> .env.production
           echo "REACT_APP_DEFAULT_LANGUAGE=$REACT_APP_DEFAULT_LANGUAGE" >> .env.production
           echo "REACT_APP_KAKAO_API_KEY=$REACT_APP_KAKAO_API_KEY" >> .env.production
+          echo "REACT_APP_KAKAO_REDIRECT_URI=$REACT_APP_KAKAO_REDIRECT_URI" >> .env.production
         env:
           REACT_APP_ENV: ${{ secrets.REACT_APP_ENV }}
           REACT_APP_TMDB_API_KEY: ${{ secrets.REACT_APP_TMDB_API_KEY }}
@@ -50,6 +51,7 @@ jobs:
           REACT_APP_TMDB_IMG_URL: ${{ secrets.REACT_APP_TMDB_IMG_URL }}
           REACT_APP_DEFAULT_LANGUAGE: ${{ secrets.REACT_APP_DEFAULT_LANGUAGE }}
           REACT_APP_KAKAO_API_KEY: ${{ secrets.REACT_APP_KAKAO_API_KEY }}
+          REACT_APP_KAKAO_REDIRECT_URI: ${{secrets.REACT_APP_KAKAO_REDIRECT_URI}}
       - name: npm install and build
         run: |
           npm install
