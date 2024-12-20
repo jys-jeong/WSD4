@@ -58,7 +58,7 @@ const AuthCallback = () => {
     };
 
     fetchToken();
-  });
+  }, [location, navigate]);
 
   return <div>{toastMessage}</div>;
 };
