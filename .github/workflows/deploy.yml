@@ -50,12 +50,6 @@ jobs:
           REACT_APP_TMDB_IMG_URL: ${{ secrets.REACT_APP_TMDB_IMG_URL }}
           REACT_APP_DEFAULT_LANGUAGE: ${{ secrets.REACT_APP_DEFAULT_LANGUAGE }}
           REACT_APP_KAKAO_API_KEY: ${{ secrets.REACT_APP_KAKAO_API_KEY }}
-
-      # 해당 프로젝트에서 사용하는 모든 라이브러리와 Surge를 설치합니다.
-      - name: Install Dependencies and Surge
-        run: |
-          npm install
-          npm install surge --global
       - name: npm install and build
         run: |
           npm install
