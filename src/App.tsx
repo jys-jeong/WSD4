@@ -9,6 +9,7 @@ const App: React.FC = () => {
     if (!kakao.isInitialized()) {
       kakao.init(`${process.env.REACT_APP_KAKAO_API_KEY}`);
       console.log("Kakao SDK initialized:", kakao.isInitialized());
+      console.log(process.env.REACT_APP_BASE_URL);
     }
   }, []);
   return (
