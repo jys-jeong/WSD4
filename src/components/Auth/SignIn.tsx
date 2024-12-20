@@ -24,7 +24,9 @@ const SignIn: React.FC<SignInProps> = ({
   const [rememberMe, setRememberMe] = useState(false);
   const { signIn } = useAuth();
   const navigate = useNavigate();
-
+  const [code, setCode] = useState(
+    new URL(window.location.href).searchParams.get("code")
+  );
   useEffect(() => {
     const savedEmail = getFromStorage("remembered-email");
     const rememberStatus = getFromStorage("remember-me") === "true";
@@ -40,13 +42,12 @@ const SignIn: React.FC<SignInProps> = ({
   };
 
   useEffect(() => {
-    const urlParams = new URL(window.location.href).searchParams;
-    const authCode = urlParams.get("code");
-    console.log(authCode);
-    if (authCode) {
-      navigate("/auth", { state: { code: authCode } });
+    if (code) {
+      console.log(code);
+      setCode(code);
+      navigate("/auth");
     }
-  }, [navigate]);
+  }, [code, navigate]);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const success = await signIn(email, password);
