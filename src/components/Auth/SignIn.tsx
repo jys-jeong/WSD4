@@ -35,7 +35,7 @@ const SignIn: React.FC<SignInProps> = ({
   }, []);
 
   const handleLogin = () => {
-    onLoginStatusChange({ success: true, message: "카카오 로그인 접속" });
+    onLoginStatusChange({ success: true, message: "카카오 로그인 접속" }); // 로그인 성공 메시지
     window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code&prompt=login`;
   };
 
