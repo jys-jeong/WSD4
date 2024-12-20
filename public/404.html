@@ -24,21 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script>
-      // 리디렉션을 처리할 URL
-      const redirectUri = window.location.href;
 
-      // GitHub Pages는 "oauth"와 같은 경로를 인식하지 못하므로, 직접 리디렉션 처리를 해줍니다.
-      if (redirectUri.includes("/auth")) {
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
-        console.log(code);
-        if (code) {
-          // 여기서 실제 카카오 API 호출을 처리하거나 리디렉션을 처리
-          window.location.replace("/WSD4/auth?code=" + code); // 예시로 `/auth`로 리디렉션
-        }
-      }
-    </script>
     <script
       type="text/javascript"
       src="https://developers.kakao.com/sdk/js/kakao.min.js"

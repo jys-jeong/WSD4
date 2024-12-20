@@ -45,7 +45,7 @@ const SignIn: React.FC<SignInProps> = ({
     if (code) {
       console.log(code);
       setCode(code);
-      navigate("/auth");
+      navigate("/auth", { state: { code } });
     }
   }, [code, navigate]);
   const handleSubmit = async (e: React.FormEvent) => {
