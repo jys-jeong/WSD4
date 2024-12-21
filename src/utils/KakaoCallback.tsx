@@ -38,7 +38,7 @@ const AuthCallback = () => {
               },
             }
           );
-          console.log("사용자 정보:", userInfo.data);
+          console.log("사용자 정보:", userInfo.data.properties);
           localStorage.setItem("access_token", access_token);
           localStorage.setItem("isAuthenticated", "true");
           localStorage.setItem("kakaoUserInfo", JSON.stringify(userInfo.data));
