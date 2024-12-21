@@ -21,7 +21,7 @@ const AppRoutes: React.FC = () => {
   const location = useLocation();
   const code = new URLSearchParams(location.search).get("code");
   const navigate = useNavigate();
-  // code가 있을 경우 로그인 후 '/'로 리디렉션
+
   useEffect(() => {
     if (code) {
       saveToStorage("isAuthenticated", "true");

@@ -7,8 +7,6 @@ const AuthCallback = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [toastMessage, setToastMessage] = useState("");
-  console.log(process.env.REACT_APP_KAKAO_API_KEY);
-  console.log(process.env.REACT_APP_KAKAO_REDIRECT_URI);
   useEffect(() => {
     const fetchToken = async () => {
       const { code } = location.state || {};
@@ -32,8 +30,7 @@ const AuthCallback = () => {
           );
 
           const { access_token } = response.data;
-          console.log(access_token);
-          // 사용자 정보 가져오기
+
           const userInfo = await axios.get(
             "https://kapi.kakao.com/v2/user/me",
             {
