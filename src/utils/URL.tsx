@@ -1,6 +1,8 @@
 import axios from "axios";
-
-const BASE_URL = `${process.env.REACT_APP_TMDB_API_URL}`;
+import { getFromStorage } from "./localstorage";
+const BASE_URL = getFromStorage("kakaoUserInfo")
+  ? `${process.env.REACT_APP_TMDB_API_URL}`
+  : null;
 const lang = `${process.env.REACT_APP_DEFAULT_LANGUAGE}`;
 export class TMDB {
   filterMovies = async ({
