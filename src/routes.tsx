@@ -43,7 +43,6 @@ const AppRoutes: React.FC = () => {
   // 'signin' 경로는 TransitionGroup 밖에서 처리
   const isSigninPage =
     location.pathname === "/signin" || location.pathname === "/auth";
-  console.log("Current location:", location.pathname);
   return (
     <div>
       {/* signin 페이지는 TransitionGroup 외부에서 렌더링 */}

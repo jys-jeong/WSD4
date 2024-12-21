@@ -34,7 +34,6 @@ export class TMDB {
       const response = await axios.get(`${BASE_URL}/movie/popular`, {
         params: { api_key: API_KEY, language: lang, page: page },
       });
-      console.log(lang);
       return response.data.results;
     } catch (error) {
       console.error("Failed to fetch movies:", error);

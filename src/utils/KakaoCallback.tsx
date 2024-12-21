@@ -11,7 +11,6 @@ const AuthCallback = () => {
     const fetchToken = async () => {
       const { code } = location.state || {};
 
-      console.log("Code from URL:", code);
       if (code) {
         try {
           const response = await axios.post(
