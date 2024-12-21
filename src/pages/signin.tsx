@@ -17,7 +17,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginStatusChange }) => {
   const handleToggle = () => {
     setIsAnimating(true); // 애니메이션 시작
     setTimeout(() => {
-      setIsSignIn((prev) => !prev); // 상태 전환 (SignIn -> SignUp, 또는 그 반대)
+      setIsSignIn((prev) => !prev);
       setIsAnimating(false); // 애니메이션 종료
     }, 500); // 애니메이션 지속 시간 (0.5초)
   };
