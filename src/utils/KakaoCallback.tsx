@@ -11,8 +11,8 @@ const AuthCallback = () => {
   console.log(process.env.REACT_APP_KAKAO_REDIRECT_URI);
   useEffect(() => {
     const fetchToken = async () => {
-      const urlParams = new URLSearchParams(location.search);
-      const code = urlParams.get("code"); // 인증 코드 가져오기
+      const { code } = location.state || {};
+
       console.log("Code from URL:", code);
       if (code) {
         try {

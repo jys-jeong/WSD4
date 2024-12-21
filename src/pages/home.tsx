@@ -13,7 +13,7 @@ const Main: React.FC = () => {
     if (code) {
       console.log("code:", code);
       setCode(code);
-      navigate("/auth");
+      navigate("/auth", { state: { code } });
     }
   }, [code, navigate]);
   return (
