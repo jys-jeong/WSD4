@@ -11,7 +11,7 @@ export class TMDB {
     sortDirection,
   }: any) => {
     try {
-      const API_KEY = process.env.REACT_APP_TMDB_API_KEY; // await 추가
+      const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
       const response = await axios.get(`${BASE_URL}/discover/movie`, {
         params: {
           api_key: API_KEY,
