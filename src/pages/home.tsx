@@ -1,21 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+
 import MovieList from "../components/home/MovieList";
 import Banner from "../components/home/Banner";
 import Header from "../components/Header";
 const Main: React.FC = () => {
-  const navigate = useNavigate();
-  const [code, setCode] = useState(
-    new URL(window.location.href).searchParams.get("code")
-  );
-
-  useEffect(() => {
-    if (code) {
-      console.log("code:", code);
-      setCode(code);
-      navigate("/auth", { state: { code } });
-    }
-  }, [code, navigate]);
   return (
     <div>
       <Header />
